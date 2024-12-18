@@ -35,7 +35,7 @@
             this.lbHome = new System.Windows.Forms.Label();
             this.lbHD = new System.Windows.Forms.Label();
             this.lbOrder = new System.Windows.Forms.Label();
-            this.pnMain = new System.Windows.Forms.Panel();
+            this.pnDisplay = new System.Windows.Forms.Panel();
             this.grpMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +64,7 @@
             this.lbThucan.TabIndex = 30;
             this.lbThucan.Text = "Thức ăn";
             this.lbThucan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbThucan.Click += new System.EventHandler(this.lbThucan_Click);
             // 
             // pictureBox1
             // 
@@ -84,6 +85,7 @@
             this.lbHome.TabIndex = 21;
             this.lbHome.Text = "Home";
             this.lbHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbHome.Click += new System.EventHandler(this.lbHome_Click);
             // 
             // lbHD
             // 
@@ -94,6 +96,7 @@
             this.lbHD.TabIndex = 23;
             this.lbHD.Text = "Hóa đơn";
             this.lbHD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbHD.Click += new System.EventHandler(this.lbHD_Click);
             // 
             // lbOrder
             // 
@@ -104,14 +107,15 @@
             this.lbOrder.TabIndex = 28;
             this.lbOrder.Text = "Order";
             this.lbOrder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbOrder.Click += new System.EventHandler(this.lbOrder_Click);
             // 
-            // pnMain
+            // pnDisplay
             // 
-            this.pnMain.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnMain.Location = new System.Drawing.Point(243, 12);
-            this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(922, 610);
-            this.pnMain.TabIndex = 1;
+            this.pnDisplay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pnDisplay.Location = new System.Drawing.Point(243, 12);
+            this.pnDisplay.Name = "pnDisplay";
+            this.pnDisplay.Size = new System.Drawing.Size(922, 610);
+            this.pnDisplay.TabIndex = 1;
             // 
             // frmMain
             // 
@@ -119,7 +123,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(1177, 634);
-            this.Controls.Add(this.pnMain);
+            this.Controls.Add(this.pnDisplay);
             this.Controls.Add(this.grpMain);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -127,6 +131,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.grpMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -140,7 +145,7 @@
         private System.Windows.Forms.Label lbHome;
         private System.Windows.Forms.Label lbHD;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel pnMain;
+        private System.Windows.Forms.Panel pnDisplay;
         private System.Windows.Forms.Label lbThucan;
     }
 }

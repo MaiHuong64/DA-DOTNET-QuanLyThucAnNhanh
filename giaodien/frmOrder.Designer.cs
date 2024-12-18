@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrder));
-            this.dtMon = new System.Windows.Forms.DataGridView();
+            this.dataOrders = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaSP = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,31 +48,32 @@
             this.txtTenKH = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.nbSoluong = new System.Windows.Forms.NumericUpDown();
-            this.cmbSanpham = new System.Windows.Forms.ComboBox();
+            this.numSL = new System.Windows.Forms.NumericUpDown();
+            this.cbbSP = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbLoaiDH = new System.Windows.Forms.ComboBox();
-            this.txtTong = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtDongia = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dtMon)).BeginInit();
+            this.lbDongia = new System.Windows.Forms.Label();
+            this.lbTT = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataOrders)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nbSoluong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSL)).BeginInit();
             this.SuspendLayout();
             // 
-            // dtMon
+            // dataOrders
             // 
-            this.dtMon.BackgroundColor = System.Drawing.Color.PapayaWhip;
-            this.dtMon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtMon.Location = new System.Drawing.Point(36, 448);
-            this.dtMon.Name = "dtMon";
-            this.dtMon.RowHeadersWidth = 51;
-            this.dtMon.RowTemplate.Height = 24;
-            this.dtMon.Size = new System.Drawing.Size(798, 129);
-            this.dtMon.TabIndex = 0;
+            this.dataOrders.BackgroundColor = System.Drawing.Color.PapayaWhip;
+            this.dataOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataOrders.Location = new System.Drawing.Point(36, 448);
+            this.dataOrders.Name = "dataOrders";
+            this.dataOrders.RowHeadersWidth = 51;
+            this.dataOrders.RowTemplate.Height = 24;
+            this.dataOrders.Size = new System.Drawing.Size(798, 129);
+            this.dataOrders.TabIndex = 0;
+            this.dataOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataOrders_CellContentClick);
             // 
             // label1
             // 
@@ -88,6 +89,7 @@
             // 
             this.txtMaSP.Location = new System.Drawing.Point(151, 191);
             this.txtMaSP.Name = "txtMaSP";
+            this.txtMaSP.ReadOnly = true;
             this.txtMaSP.Size = new System.Drawing.Size(109, 30);
             this.txtMaSP.TabIndex = 9;
             // 
@@ -114,6 +116,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbTT);
+            this.groupBox1.Controls.Add(this.lbDongia);
             this.groupBox1.Controls.Add(this.txtDiachi);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txtSDT);
@@ -127,13 +131,11 @@
             this.groupBox1.Controls.Add(this.txtTenKH);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.nbSoluong);
-            this.groupBox1.Controls.Add(this.cmbSanpham);
+            this.groupBox1.Controls.Add(this.numSL);
+            this.groupBox1.Controls.Add(this.cbbSP);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.cmbLoaiDH);
-            this.groupBox1.Controls.Add(this.txtTong);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtDongia);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtMaSP);
             this.groupBox1.Controls.Add(this.label1);
@@ -217,6 +219,7 @@
             // 
             this.txtMaKH.Location = new System.Drawing.Point(151, 91);
             this.txtMaKH.Name = "txtMaKH";
+            this.txtMaKH.ReadOnly = true;
             this.txtMaKH.Size = new System.Drawing.Size(109, 30);
             this.txtMaKH.TabIndex = 26;
             // 
@@ -257,20 +260,22 @@
             this.label8.TabIndex = 22;
             this.label8.Text = "Số lượng";
             // 
-            // nbSoluong
+            // numSL
             // 
-            this.nbSoluong.Location = new System.Drawing.Point(427, 99);
-            this.nbSoluong.Name = "nbSoluong";
-            this.nbSoluong.Size = new System.Drawing.Size(112, 30);
-            this.nbSoluong.TabIndex = 20;
+            this.numSL.Location = new System.Drawing.Point(427, 99);
+            this.numSL.Name = "numSL";
+            this.numSL.Size = new System.Drawing.Size(112, 30);
+            this.numSL.TabIndex = 20;
+            this.numSL.ValueChanged += new System.EventHandler(this.numSL_ValueChanged);
             // 
-            // cmbSanpham
+            // cbbSP
             // 
-            this.cmbSanpham.FormattingEnabled = true;
-            this.cmbSanpham.Location = new System.Drawing.Point(151, 241);
-            this.cmbSanpham.Name = "cmbSanpham";
-            this.cmbSanpham.Size = new System.Drawing.Size(109, 30);
-            this.cmbSanpham.TabIndex = 18;
+            this.cbbSP.FormattingEnabled = true;
+            this.cbbSP.Location = new System.Drawing.Point(151, 241);
+            this.cbbSP.Name = "cbbSP";
+            this.cbbSP.Size = new System.Drawing.Size(109, 30);
+            this.cbbSP.TabIndex = 18;
+            this.cbbSP.SelectedIndexChanged += new System.EventHandler(this.cbbSP_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -290,13 +295,6 @@
             this.cmbLoaiDH.Size = new System.Drawing.Size(112, 30);
             this.cmbLoaiDH.TabIndex = 16;
             // 
-            // txtTong
-            // 
-            this.txtTong.Location = new System.Drawing.Point(427, 232);
-            this.txtTong.Name = "txtTong";
-            this.txtTong.Size = new System.Drawing.Size(112, 30);
-            this.txtTong.TabIndex = 15;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -304,16 +302,9 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label5.Location = new System.Drawing.Point(301, 239);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 23);
+            this.label5.Size = new System.Drawing.Size(107, 23);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Tổng tiền";
-            // 
-            // txtDongia
-            // 
-            this.txtDongia.Location = new System.Drawing.Point(427, 165);
-            this.txtDongia.Name = "txtDongia";
-            this.txtDongia.Size = new System.Drawing.Size(112, 30);
-            this.txtDongia.TabIndex = 13;
+            this.label5.Text = "Thành tiền:";
             // 
             // label4
             // 
@@ -335,6 +326,7 @@
             this.btnThem.TabIndex = 14;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnXoa
             // 
@@ -346,6 +338,27 @@
             this.btnXoa.TabIndex = 15;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // lbDongia
+            // 
+            this.lbDongia.AutoSize = true;
+            this.lbDongia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lbDongia.Location = new System.Drawing.Point(423, 173);
+            this.lbDongia.Name = "lbDongia";
+            this.lbDongia.Size = new System.Drawing.Size(20, 22);
+            this.lbDongia.TabIndex = 35;
+            this.lbDongia.Text = "0";
+            // 
+            // lbTT
+            // 
+            this.lbTT.AutoSize = true;
+            this.lbTT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lbTT.Location = new System.Drawing.Point(423, 239);
+            this.lbTT.Name = "lbTT";
+            this.lbTT.Size = new System.Drawing.Size(20, 22);
+            this.lbTT.TabIndex = 36;
+            this.lbTT.Text = "0";
             // 
             // frmOrder
             // 
@@ -357,16 +370,17 @@
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dtMon);
+            this.Controls.Add(this.dataOrders);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmOrder";
             this.Text = "frmOrder";
-            ((System.ComponentModel.ISupportInitialize)(this.dtMon)).EndInit();
+            this.Load += new System.EventHandler(this.frmOrder_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataOrders)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nbSoluong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSL)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,21 +388,19 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dtMon;
+        private System.Windows.Forms.DataGridView dataOrders;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtMaSP;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cmbSanpham;
+        private System.Windows.Forms.ComboBox cbbSP;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbLoaiDH;
-        private System.Windows.Forms.TextBox txtTong;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtDongia;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown nbSoluong;
+        private System.Windows.Forms.NumericUpDown numSL;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.TextBox txtMaDH;
@@ -403,5 +415,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtNote;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbDongia;
+        private System.Windows.Forms.Label lbTT;
     }
 }
